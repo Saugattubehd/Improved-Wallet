@@ -19,7 +19,7 @@
         <div class="container">
             <div class="logotext">
                 <img src="N_Logo-removebg-preview.png" alt="Neo Wallet Logo" class="logo">
-                <a href="homepage.php">
+                <a href="index.html">
                     <h1 id="neo-wallet">Neo Wallet</h1>
                 </a>
             </div>
@@ -55,13 +55,13 @@
     <aside>
         <div class="sidebar">
             <ul class="sidebar-menu">
-                <li></li><a href="homepage.php" class="active">
+                <li></li><a href="index.html" class="active">
                     <i class='bx bxs-home'></i>
                     <h4>Home</h4>
                 </a>
                 </li>
                 <li>
-                    <a href="transaction.php">
+                    <a href="transaction.html">
                         <i class='bx bxs-wallet'></i>
                         <h4>Transactions</h4>
                     </a>
@@ -102,8 +102,9 @@
                 <div class="balance-section">
                     <div class="balance-title">Running Balance</div>
                     <div class="balance-amount">
-                        NRP XXXXX
-                        <i class="fas fa-eye-slash hide-icon"></i>
+                        NRP  <span id="balance">XXXXX</span>
+                        <button class="toggle-btn" onclick="toggleBalance()">
+                        <i id="eyeIcon" class="fas fa-eye-slash"></i></button>
                     </div>
                 </div>
                 <div class="username">Saugat Neupane</div>
@@ -301,23 +302,10 @@
             </div>
         </footer>
         <script src="index.js">
-            // Toggle sidebar on mobile
-            const menuBtn = document.querySelector('#menu-btn');
-            const sidebar = document.querySelector('.sidebar');
-
-            menuBtn.addEventListener('click', () => {
-                sidebar.classList.toggle('show');
-            });
-
-            // Close sidebar when clicking outside on mobile
-            document.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    if (!sidebar.contains(e.target) && e.target !== menuBtn && !menuBtn.contains(e.target)) {
-                        sidebar.classList.remove('show');
-                    }
-                }
-            });
+        
         </script>
 </body>
 
 </html>
+
+
