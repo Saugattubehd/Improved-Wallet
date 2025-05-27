@@ -9,16 +9,814 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="shortcut icon" type="x-icon" href="N_Logo-removebg-preview.png">
+    <link rel="shortcut icon" type="x-icon" href="\N_Logo-removebg-preview.png">
     <link rel="stylesheet" href="style.css" type="text/css">
 
 </head>
 
 <body>
+    <!-- modal-popups starts DONT TOUCH -->
+    <div class="popup" id="topup-m">
+        <div class="popup__content">
+            <h2 class="heading-secondary">
+                <h2>
+                    Topup
+                    <span class="material-symbols-outlined">
+                        smartphone
+                    </span>
+                </h2>
+            </h2>
+            <h3 class="heading-tertiary">Important &ndash; Please read these terms before proceeding</h3>
+            <p class="popup__text">
+
+            <div class="formbox">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="phone">Enter Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Enter Phone Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amount">Amount(NPR)</label>
+                        <input type="number" id="amount" name="amount" required placeholder="Enter Amount">
+                    </div>
+                </form>
+            </div>
+
+            </p>
+
+            <div class="ctrl">
+                <a href="#" class="button" onclick="history.back()">Close</a>
+
+                <div class="inctrl">
+                    <button type="reset" name="Clear" class="clear-button" onclick="reset()">
+                        <i class="fas fa-eraser"></i>
+                        <span>Clear</span>
+                    </button>
+                    <button type="submit" name="validate" class="validate-button">
+                        <span>Proceed</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="popup" id="electricity-m">
+        <div class="popup__content">
+            <h2 class="heading-secondary">
+                <h2>
+                    Electricity
+                    <span class="material-symbols-outlined">
+                        smartphone
+                    </span>
+                </h2>
+            </h2>
+            <h3 class="heading-tertiary">Important &ndash; Please read these terms before booking</h3>
+            <p class="popup__text">
+
+            <div class="formbox">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="counter">Counter</label>
+                        <input type="text" id="counter" name="counter" required placeholder="Enter Counter ">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sc_number">SC Number</label>
+                        <input type="text" id="sc_number" name="sc_number" required placeholder="Enter SC Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="consumer_id">Consumer ID</label>
+                        <input type="number" id="consumer_id" name="consumer_id" required
+                            placeholder="Enter Consumer ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount(NPR)</label>
+                        <input type="number" id="amount" name="amount" required placeholder="Enter Amount">
+                    </div>
+
+                </form>
+            </div>
+
+            </p>
+
+            <div class="ctrl">
+                <a href="#" class="button" onclick="history.back()">Close</a>
+
+                <div class="inctrl">
+                    <button type="reset" name="Clear" class="clear-button" onclick="reset()">
+                        <i class="fas fa-eraser"></i>
+                        <span>Clear</span>
+                    </button>
+                    <button type="submit" name="validate" class="validate-button">
+                        <span>Proceed</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="popup" id="khanepani-m">
+        <div class="popup__content">
+            <h2 class="heading-secondary">Khanepani</h2>
+            <h3 class="heading-tertiary">Important &ndash; Please read these terms before booking</h3>
+            <p class="popup__text">
+
+            <div class="formbox">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="counter">Counter</label>
+                        <input type="text" id="counter" name="counter" required placeholder="Enter Counter ">
+                    </div>
+
+                   <div class="form-group">
+                        <label for="consumer_id">Consumer ID</label>
+                        <input type="number" id="consumer_id" name="consumer_id" required
+                            placeholder="Enter Consumer ID">
+                    </div>
+ <div class="form-group">
+                        <label for="amount">Amount(NPR)</label>
+                        <input type="number" id="amount" name="amount" required placeholder="Enter Amount">
+                    </div>
+                   
+
+
+                </form>
+            </div>
+
+            </p>
+
+            <div class="ctrl">
+                <a href="#" class="button" onclick="history.back()">Close</a>
+
+                <div class="inctrl">
+                    <button type="reset" name="Clear" class="clear-button" onclick="reset()">
+                        <i class="fas fa-eraser"></i>
+                        <span>Clear</span>
+                    </button>
+                    <button type="submit" name="validate" class="validate-button">
+                        <span>Proceed</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="popup" id="internet-m">
+        <div class="popup__content">
+            <h2 class="heading-secondary">Internet</h2>
+            <h3 class="heading-tertiary">Important &ndash; Please read these terms before booking</h3>
+            <p class="popup__text">
+
+            <div class="formbox">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="mtcn">MTCN</label>
+                        <input type="number" id="mtcn" name="mtcn" required placeholder="Enter MTCN Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_name">Sender Name</label>
+                        <input type="text" id="sender_name" name="sender_name" required placeholder="Enter Sender Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_phone">Sender Phone</label>
+                        <input type="number" id="sender_phone" name="sender_phone" required
+                            placeholder="Enter Sender Phone">
+                    </div>
+
+
+                </form>
+            </div>
+
+            </p>
+
+            <div class="ctrl">
+                <a href="#" class="button" onclick="history.back()">Close</a>
+
+                <div class="inctrl">
+                    <button type="reset" name="Clear" class="clear-button" onclick="reset()">
+                        <i class="fas fa-eraser"></i>
+                        <span>Clear</span>
+                    </button>
+                    <button type="submit" name="validate" class="validate-button">
+                        <span>Proceed</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="popup" id="airlines-m">
+        <div class="popup__content">
+            <h2 class="heading-secondary">Airlines</h2>
+            <h3 class="heading-tertiary">Important &ndash; Please read these terms before booking</h3>
+            <p class="popup__text">
+
+            <div class="formbox">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="mtcn">MTCN</label>
+                        <input type="number" id="mtcn" name="mtcn" required placeholder="Enter MTCN Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_name">Sender Name</label>
+                        <input type="text" id="sender_name" name="sender_name" required placeholder="Enter Sender Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_phone">Sender Phone</label>
+                        <input type="number" id="sender_phone" name="sender_phone" required
+                            placeholder="Enter Sender Phone">
+                    </div>
+
+
+                </form>
+            </div>
+
+            </p>
+
+            <div class="ctrl">
+                <a href="#" class="button" onclick="history.back()">Close</a>
+
+                <div class="inctrl">
+                    <button type="reset" name="Clear" class="clear-button" onclick="reset()">
+                        <i class="fas fa-eraser"></i>
+                        <span>Clear</span>
+                    </button>
+                    <button type="submit" name="validate" class="validate-button">
+                        <span>Proceed</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="popup" id="tv-m">
+        <div class="popup__content">
+            <h2 class="heading-secondary">TV Services</h2>
+            <h3 class="heading-tertiary">Important &ndash; Please read these terms before booking</h3>
+            <p class="popup__text">
+
+            <div class="formbox">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="mtcn">MTCN</label>
+                        <input type="number" id="mtcn" name="mtcn" required placeholder="Enter MTCN Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_name">Sender Name</label>
+                        <input type="text" id="sender_name" name="sender_name" required placeholder="Enter Sender Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_phone">Sender Phone</label>
+                        <input type="number" id="sender_phone" name="sender_phone" required
+                            placeholder="Enter Sender Phone">
+                    </div>
+
+
+                </form>
+            </div>
+
+            </p>
+
+            <div class="ctrl">
+                <a href="#" class="button" onclick="history.back()">Close</a>
+
+                <div class="inctrl">
+                    <button type="reset" name="Clear" class="clear-button" onclick="reset()">
+                        <i class="fas fa-eraser"></i>
+                        <span>Clear</span>
+                    </button>
+                    <button type="submit" name="validate" class="validate-button">
+                        <span>Proceed</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="popup" id="credit-m">
+        <div class="popup__content">
+            <h2 class="heading-secondary">Credit Cards</h2>
+            <h3 class="heading-tertiary">Important &ndash; Please read these terms before booking</h3>
+            <p class="popup__text">
+
+            <div class="formbox">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="mtcn">MTCN</label>
+                        <input type="number" id="mtcn" name="mtcn" required placeholder="Enter MTCN Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_name">Sender Name</label>
+                        <input type="text" id="sender_name" name="sender_name" required placeholder="Enter Sender Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_phone">Sender Phone</label>
+                        <input type="number" id="sender_phone" name="sender_phone" required
+                            placeholder="Enter Sender Phone">
+                    </div>
+
+
+                </form>
+            </div>
+
+            </p>
+
+            <div class="ctrl">
+                <a href="#" class="button" onclick="history.back()">Close</a>
+
+                <div class="inctrl">
+                    <button type="reset" name="Clear" class="clear-button" onclick="reset()">
+                        <i class="fas fa-eraser"></i>
+                        <span>Clear</span>
+                    </button>
+                    <button type="submit" name="validate" class="validate-button">
+                        <span>Proceed</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="popup" id="insurance-m">
+        <div class="popup__content">
+            <h2 class="heading-secondary">Insurance</h2>
+            <h3 class="heading-tertiary">Important &ndash; Please read these terms before booking</h3>
+            <p class="popup__text">
+
+            <div class="formbox">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="mtcn">MTCN</label>
+                        <input type="number" id="mtcn" name="mtcn" required placeholder="Enter MTCN Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_name">Sender Name</label>
+                        <input type="text" id="sender_name" name="sender_name" required placeholder="Enter Sender Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_phone">Sender Phone</label>
+                        <input type="number" id="sender_phone" name="sender_phone" required
+                            placeholder="Enter Sender Phone">
+                    </div>
+
+
+                </form>
+            </div>
+
+            </p>
+
+            <div class="ctrl">
+                <a href="#" class="button" onclick="history.back()">Close</a>
+
+                <div class="inctrl">
+                    <button type="reset" name="Clear" class="clear-button" onclick="reset()">
+                        <i class="fas fa-eraser"></i>
+                        <span>Clear</span>
+                    </button>
+                    <button type="submit" name="validate" class="validate-button">
+                        <span>Proceed</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="popup" id="fees-m">
+        <div class="popup__content">
+            <h2 class="heading-secondary">School Fees</h2>
+            <h3 class="heading-tertiary">Important &ndash; Please read these terms before booking</h3>
+            <p class="popup__text">
+
+            <div class="formbox">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="mtcn">MTCN</label>
+                        <input type="number" id="mtcn" name="mtcn" required placeholder="Enter MTCN Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_name">Sender Name</label>
+                        <input type="text" id="sender_name" name="sender_name" required placeholder="Enter Sender Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_phone">Sender Phone</label>
+                        <input type="number" id="sender_phone" name="sender_phone" required
+                            placeholder="Enter Sender Phone">
+                    </div>
+
+
+                </form>
+            </div>
+
+            </p>
+
+            <div class="ctrl">
+                <a href="#" class="button" onclick="history.back()">Close</a>
+
+                <div class="inctrl">
+                    <button type="reset" name="Clear" class="clear-button" onclick="reset()">
+                        <i class="fas fa-eraser"></i>
+                        <span>Clear</span>
+                    </button>
+                    <button type="submit" name="validate" class="validate-button">
+                        <span>Proceed</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="popup" id="finance-m">
+        <div class="popup__content">
+            <h2 class="heading-secondary">Finance</h2>
+            <h3 class="heading-tertiary">Important &ndash; Please read these terms before booking</h3>
+            <p class="popup__text">
+
+            <div class="formbox">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="mtcn">MTCN</label>
+                        <input type="number" id="mtcn" name="mtcn" required placeholder="Enter MTCN Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_name">Sender Name</label>
+                        <input type="text" id="sender_name" name="sender_name" required placeholder="Enter Sender Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_phone">Sender Phone</label>
+                        <input type="number" id="sender_phone" name="sender_phone" required
+                            placeholder="Enter Sender Phone">
+                    </div>
+
+
+                </form>
+            </div>
+
+            </p>
+
+            <div class="ctrl">
+                <a href="#" class="button" onclick="history.back()">Close</a>
+
+                <div class="inctrl">
+                    <button type="reset" name="Clear" class="clear-button" onclick="reset()">
+                        <i class="fas fa-eraser"></i>
+                        <span>Clear</span>
+                    </button>
+                    <button type="submit" name="validate" class="validate-button">
+                        <span>Proceed</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup" id="emi-m">
+        <div class="popup__content">
+            <h2 class="heading-secondary">EMI</h2>
+            <h3 class="heading-tertiary">Important &ndash; Please read these terms before booking</h3>
+            <p class="popup__text">
+
+            <div class="formbox">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="mtcn">MTCN</label>
+                        <input type="number" id="mtcn" name="mtcn" required placeholder="Enter MTCN Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_name">Sender Name</label>
+                        <input type="text" id="sender_name" name="sender_name" required placeholder="Enter Sender Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_phone">Sender Phone</label>
+                        <input type="number" id="sender_phone" name="sender_phone" required
+                            placeholder="Enter Sender Phone">
+                    </div>
+
+
+                </form>
+            </div>
+
+            </p>
+
+            <div class="ctrl">
+                <a href="#" class="button" onclick="history.back()">Close</a>
+
+                <div class="inctrl">
+                    <button type="reset" name="Clear" class="clear-button" onclick="reset()">
+                        <i class="fas fa-eraser"></i>
+                        <span>Clear</span>
+                    </button>
+                    <button type="submit" name="validate" class="validate-button">
+                        <span>Proceed</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup" id="hotel-m">
+        <div class="popup__content">
+            <h2 class="heading-secondary">Hotel Booking</h2>
+            <h3 class="heading-tertiary">Important &ndash; Please read these terms before booking</h3>
+            <p class="popup__text">
+
+            <div class="formbox">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="mtcn">MTCN</label>
+                        <input type="number" id="mtcn" name="mtcn" required placeholder="Enter MTCN Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_name">Sender Name</label>
+                        <input type="text" id="sender_name" name="sender_name" required placeholder="Enter Sender Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_phone">Sender Phone</label>
+                        <input type="number" id="sender_phone" name="sender_phone" required
+                            placeholder="Enter Sender Phone">
+                    </div>
+
+
+                </form>
+            </div>
+
+            </p>
+
+            <div class="ctrl">
+                <a href="#" class="button" onclick="history.back()">Close</a>
+
+                <div class="inctrl">
+                    <button type="reset" name="Clear" class="clear-button" onclick="reset()">
+                        <i class="fas fa-eraser"></i>
+                        <span>Clear</span>
+                    </button>
+                    <button type="submit" name="validate" class="validate-button">
+                        <span>Proceed</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="popup" id="recharge-m">
+        <div class="popup__content">
+            <h2 class="heading-secondary">Recharge</h2>
+            <h3 class="heading-tertiary">Important &ndash; Please read these terms before booking</h3>
+            <p class="popup__text">
+
+            <div class="formbox">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="mtcn">MTCN</label>
+                        <input type="number" id="mtcn" name="mtcn" required placeholder="Enter MTCN Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_name">Sender Name</label>
+                        <input type="text" id="sender_name" name="sender_name" required placeholder="Enter Sender Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_phone">Sender Phone</label>
+                        <input type="number" id="sender_phone" name="sender_phone" required
+                            placeholder="Enter Sender Phone">
+                    </div>
+
+
+                </form>
+            </div>
+
+            </p>
+
+            <div class="ctrl">
+                <a href="#" class="button" onclick="history.back()">Close</a>
+
+                <div class="inctrl">
+                    <button type="reset" name="Clear" class="clear-button" onclick="reset()">
+                        <i class="fas fa-eraser"></i>
+                        <span>Clear</span>
+                    </button>
+                    <button type="submit" name="validate" class="validate-button">
+                        <span>Proceed</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="popup" id="movie-m">
+        <div class="popup__content">
+            <h2 class="heading-secondary">Movie Tickets</h2>
+            <h3 class="heading-tertiary">Important &ndash; Please read these terms before booking</h3>
+            <p class="popup__text">
+
+            <div class="formbox">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="mtcn">MTCN</label>
+                        <input type="number" id="mtcn" name="mtcn" required placeholder="Enter MTCN Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_name">Sender Name</label>
+                        <input type="text" id="sender_name" name="sender_name" required placeholder="Enter Sender Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_phone">Sender Phone</label>
+                        <input type="number" id="sender_phone" name="sender_phone" required
+                            placeholder="Enter Sender Phone">
+                    </div>
+
+
+                </form>
+            </div>
+
+            </p>
+
+            <div class="ctrl">
+                <a href="#" class="button" onclick="history.back()">Close</a>
+
+                <div class="inctrl">
+                    <button type="reset" name="Clear" class="clear-button" onclick="reset()">
+                        <i class="fas fa-eraser"></i>
+                        <span>Clear</span>
+                    </button>
+                    <button type="submit" name="validate" class="validate-button">
+                        <span>Proceed</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="popup" id="bus-m">
+        <div class="popup__content">
+            <h2 class="heading-secondary">Bus Booking</h2>
+            <h3 class="heading-tertiary">Important &ndash; Please read these terms before booking</h3>
+            <p class="popup__text">
+
+            <div class="formbox">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="mtcn">MTCN</label>
+                        <input type="number" id="mtcn" name="mtcn" required placeholder="Enter MTCN Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_name">Sender Name</label>
+                        <input type="text" id="sender_name" name="sender_name" required placeholder="Enter Sender Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_phone">Sender Phone</label>
+                        <input type="number" id="sender_phone" name="sender_phone" required
+                            placeholder="Enter Sender Phone">
+                    </div>
+
+
+                </form>
+            </div>
+
+            </p>
+
+            <div class="ctrl">
+                <a href="#" class="button" onclick="history.back()">Close</a>
+
+                <div class="inctrl">
+                    <button type="reset" name="Clear" class="clear-button" onclick="reset()">
+                        <i class="fas fa-eraser"></i>
+                        <span>Clear</span>
+                    </button>
+                    <button type="submit" name="validate" class="validate-button">
+                        <span>Proceed</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="popup" id="vote-m">
+        <div class="popup__content">
+            <h2 class="heading-secondary">Vote</h2>
+            <h3 class="heading-tertiary">Important &ndash; Please read these terms before booking</h3>
+            <p class="popup__text">
+
+            <div class="formbox">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="mtcn">MTCN</label>
+                        <input type="number" id="mtcn" name="mtcn" required placeholder="Enter MTCN Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_name">Sender Name</label>
+                        <input type="text" id="sender_name" name="sender_name" required placeholder="Enter Sender Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sender_phone">Sender Phone</label>
+                        <input type="number" id="sender_phone" name="sender_phone" required
+                            placeholder="Enter Sender Phone">
+                    </div>
+
+
+                </form>
+            </div>
+
+            </p>
+
+            <div class="ctrl">
+                <a href="#" class="button" onclick="history.back()">Close</a>
+
+                <div class="inctrl">
+                    <button type="reset" name="Clear" class="clear-button" onclick="reset()">
+                        <i class="fas fa-eraser"></i>
+                        <span>Clear</span>
+                    </button>
+                    <button type="submit" name="validate" class="validate-button">
+                        <span>Proceed</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal-popups ends DONT TOUCH -->
+
+
+
     <nav>
         <div class="container">
             <div class="logotext">
-                <img src="N_Logo-removebg-preview.png" alt="Neo Wallet Logo" class="logo">
+                <img src="/N_Logo-removebg-preview.png" alt="Neo Wallet Logo" class="logo">
                 <a href="index.html">
                     <h1 id="neo-wallet">Neo Wallet</h1>
                 </a>
@@ -28,6 +826,7 @@
                     <input type="text" name="q" placeholder="Search...">
                     <button type="submit">
                         <span class="material-symbols-outlined">search</span>
+                        &nbsp;&nbsp;
                     </button>
                 </form>
             </div>
@@ -94,6 +893,8 @@
 
     <!-- Main Content Area -->
     <main>
+
+
         <section class="middle">
             <div class="header">
                 <h3>Overview</h3>
@@ -102,42 +903,49 @@
                 <div class="balance-section">
                     <div class="balance-title">Running Balance</div>
                     <div class="balance-amount">
-                        NRP  <span id="balance">XXXXX</span>
+                        NRP <span id="balance">XXXXX</span>
                         <button class="toggle-btn" onclick="toggleBalance()">
-                        <i id="eyeIcon" class="fas fa-eye-slash"></i></button>
+                            <i id="eyeIcon" class="fas fa-eye-slash"></i></button>
                     </div>
                 </div>
                 <div class="username">Saugat Neupane</div>
             </div>
             <!-- Action Cards -->
             <div class="action-cards">
-                <div class="card action-card">
+                <div class="card action-card load">
                     <div class="action-icon">
                         <i class="fas fa-wallet"></i>
                     </div>
                     <div class="action-title">Load Money</div>
                 </div>
-                <div class="card action-card">
+                <div class="card action-card send">
                     <div class="action-icon">
                         <i class="fas fa-paper-plane"></i>
                     </div>
                     <div class="action-title">Send Money</div>
                 </div>
-                <div class="card action-card">
+                <div class="card action-card bank">
                     <div class="action-icon">
                         <i class="fa-solid fa-building-columns"></i>
                     </div>
                     <div class="action-title">Bank Transfer</div>
                 </div>
-                <div class="card action-card">
+
+
+                <div class="card action-card remit">
+
                     <div class="action-icon">
                         <span class="material-symbols-outlined">
                             currency_exchange
                         </span>
                     </div>
                     <div class="action-title">Remittance</div>
+
                 </div>
+
+
             </div>
+
 
             </div>
             <div class="header">
@@ -146,35 +954,36 @@
             <div class="utility-container">
                 <div class="utility-grid">
                     <div class="utility-item">
-                        <a href="topup.php"><span class="material-symbols-outlined">
+
+                        <a href="#topup-m"><span class="material-symbols-outlined">
                                 smartphone
                             </span>
                             <p>Topup</p>
                         </a>
                     </div>
                     <div class="utility-item">
-                        <a href="#"><span class="material-symbols-outlined">
+                        <a href="#electricity-m"><span class="material-symbols-outlined">
                                 home_iot_device
                             </span>
                             <p>Electricity</p>
                         </a>
                     </div>
                     <div class="utility-item">
-                        <a href="#"><span class="material-symbols-outlined">
+                        <a href="#khanepani-m"><span class="material-symbols-outlined">
                                 water_ec
                             </span>
                             <p>Khanepani</p>
                         </a>
                     </div>
                     <div class="utility-item">
-                        <a href="#"><span class="material-symbols-outlined">
+                        <a href="#internet-m"><span class="material-symbols-outlined">
                                 router
                             </span>
                             <p>Internet</p>
                         </a>
                     </div>
                     <div class="utility-item">
-                        <a href="#">
+                        <a href="#airlines-m">
                             <span class="material-symbols-outlined">
                                 airplane_ticket
                             </span>
@@ -182,7 +991,7 @@
                         </a>
                     </div>
                     <div class="utility-item">
-                        <a href="#">
+                        <a href="#tv-m">
                             <span class="material-symbols-outlined">
                                 tv_displays
                             </span>
@@ -190,7 +999,7 @@
                         </a>
                     </div>
                     <div class="utility-item">
-                        <a href="#">
+                        <a href="#credit-m">
                             <span class="material-symbols-outlined">
                                 credit_card
                             </span>
@@ -198,7 +1007,7 @@
                         </a>
                     </div>
                     <div class="utility-item">
-                        <a href="#">
+                        <a href="#insurance-m">
                             <span class="material-symbols-outlined">
                                 home_health
                             </span>
@@ -206,7 +1015,7 @@
                         </a>
                     </div>
                     <div class="utility-item">
-                        <a href="fee.php">
+                        <a href="#fees-m">
                             <span class="material-symbols-outlined">
                                 school
                             </span>
@@ -214,7 +1023,7 @@
                         </a>
                     </div>
                     <div class="utility-item">
-                        <a href="#">
+                        <a href="#finance-m">
                             <span class="material-symbols-outlined">
                                 savings
                             </span>
@@ -222,7 +1031,7 @@
                         </a>
                     </div>
                     <div class="utility-item">
-                        <a href="#">
+                        <a href="#emi-m">
                             <span class="material-symbols-outlined">
                                 payments
                             </span>
@@ -230,7 +1039,7 @@
                         </a>
                     </div>
                     <div class="utility-item">
-                        <a href="#">
+                        <a href="#hotel-m">
                             <span class="material-symbols-outlined">
                                 hotel
                             </span>
@@ -238,7 +1047,7 @@
                         </a>
                     </div>
                     <div class="utility-item">
-                        <a href="#">
+                        <a href="#recharge-m">
                             <span class="material-symbols-outlined">
                                 redeem
                             </span>
@@ -246,7 +1055,7 @@
                         </a>
                     </div>
                     <div class="utility-item">
-                        <a href="#">
+                        <a href="#movie-m">
                             <span class="material-symbols-outlined">
                                 movie
                             </span>
@@ -254,7 +1063,7 @@
                         </a>
                     </div>
                     <div class="utility-item">
-                        <a href="#">
+                        <a href="#bus-m">
                             <span class="material-symbols-outlined">
                                 bus_railway
                             </span>
@@ -262,7 +1071,7 @@
                         </a>
                     </div>
                     <div class="utility-item">
-                        <a href="#">
+                        <a href="#vote-m">
                             <span class="material-symbols-outlined">
                                 how_to_vote
                             </span>
@@ -271,6 +1080,7 @@
                     </div>
                 </div>
             </div>
+        </section>
     </main>
     <footer>
         <footer class="footer">
@@ -302,10 +1112,14 @@
             </div>
         </footer>
         <script src="index.js">
-        
+
+        </script>
+        <script>
+            function reset() {
+                var element = document.getElementById("form");
+                element.reset();
+            }
         </script>
 </body>
 
 </html>
-
-

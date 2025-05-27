@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="shortcut icon" type="x-icon" href="N_Logo-removebg-preview.png">
+    <link rel="shortcut icon" type="x-icon" href="\N_Logo-removebg-preview.png">
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
@@ -17,10 +17,10 @@
     <nav>
         <div class="container">
             <div class="logotext">
-                <img src="N_Logo-removebg-preview.png" alt="Neo Wallet Logo" class="logo">
+                <img src="\N_Logo-removebg-preview.png" alt="Neo Wallet Logo" class="logo">
                 <a href="index.html">
                     <h1 id="neo-wallet">Neo Wallet</h1>
-                </a>
+                </a>    
             </div>
             <div id="search-bar">
                 <form id="search-bar1">
@@ -55,9 +55,9 @@
         <div class="sidebar">
             <ul class="sidebar-menu">
                 <li><a href="index.html">
-                    <i class='bx bxs-home'></i>
-                    <h4>Home</h4>
-                </a>
+                        <i class='bx bxs-home'></i>
+                        <h4>Home</h4>
+                    </a>
                 </li>
                 <li>
                     <a href="transaction.html" class="active">
@@ -93,7 +93,7 @@
 
     <!-- Main Content Area -->
     <main>
-        <section class="middle transactions-page">
+        <section class="middle">
             <div class="header">
                 <h3>Transactions</h3>
             </div>
@@ -158,14 +158,14 @@
                         <i class="fas fa-download"></i> Export
                     </button>
                 </div>
-                
+
                 <div class="transaction-list-header">
                     <div class="header-date">Date & Time</div>
                     <div class="header-description">Description</div>
                     <div class="header-amount">Amount</div>
                     <div class="header-status">Status</div>
                 </div>
-                
+
                 <div id="transaction-history" class="transaction-list">
                     <!-- Transactions will be loaded here via JavaScript -->
                     <div class="transaction-item">
@@ -181,7 +181,7 @@
                         <div class="transaction-status completed">Completed</div>
                     </div>
                 </div>
-                
+
                 <!-- Pagination -->
                 <div class="pagination">
                     <button class="page-button" disabled><i class="fas fa-chevron-left"></i></button>
@@ -223,9 +223,465 @@
             <p>&copy; 2025 Neo Wallet. All Rights Reserved.</p>
         </div>
     </footer>
-    
+
     <script src="index.js"></script>
     <script src="transaction.js"></script>
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // DOM Elements
+    const balanceElement = document.getElementById('balance');
+    const eyeIcon = document.getElementById('eyeIcon');
+    const transactionList = document.getElementById('transaction-history');
+    const transactionTypeFilter = document.getElementById('transaction-type');
+    const dateRangeFilter = document.getElementById('date-range');
+    const dateFromInput = document.getElementById('date-from');
+    const dateToInput = document.getElementById('date-to');
+    const filterApplyBtn = document.getElementById('filter-apply');
+    const filterResetBtn = document.getElementById('filter-reset');
+    const transactionSearch = document.getElementById('transaction-search');
+    const searchButton = document.getElementById('search-button');
+    const exportBtn = document.getElementById('export-transactions');
+    const customDateRange = document.querySelector('.custom-date-range');
+
+    // User data
+    let currentUser = {
+        name: "Saugat Neupane",
+        balance: 58450.25, // Initial balance
+        transactions: [
+            {
+                id: 1,
+                date: '2025-05-10',
+                time: '15:20',
+                title: 'Load Money',
+                details: 'eSewa Transfer',
+                amount: 10000.00,
+                type: 'credit',
+                status: 'completed',
+                recipient: null,
+                reference: 'ESW202505101520'
+            },
+            {
+                id: 2,
+                date: '2025-05-09',
+                time: '11:45',
+                title: 'Grocery Store',
+                details: 'Big Mart Purchase',
+                amount: 2450.75,
+                type: 'debit',
+                status: 'completed',
+                recipient: 'Big Mart',
+                reference: 'POS202505091145'
+            },
+            {
+                id: 3,
+                date: '2025-05-08',
+                time: '09:30',
+                title: 'Salary',
+                details: 'Monthly Salary',
+                amount: 50000.00,
+                type: 'credit',
+                status: 'completed',
+                recipient: null,
+                reference: 'SAL202505080930'
+            },
+            {
+                id: 4,
+                date: '2025-05-07',
+                time: '14:15',
+                title: 'Transfer to Friend',
+                details: 'Dinner repayment',
+                amount: 1500.00,
+                type: 'debit',
+                status: 'completed',
+                recipient: 'Ramesh Shrestha',
+                reference: 'TRF202505071415'
+            },
+            {
+                id: 5,
+                date: '2025-05-06',
+                time: '16:40',
+                title: 'Mobile Recharge',
+                details: 'NTC Prepaid',
+                amount: 500.00,
+                type: 'debit',
+                status: 'completed',
+                recipient: 'Nepal Telecom',
+                reference: 'TOP202505061640'
+            },
+            {
+                id: 6,
+                date: '2025-05-05',
+                time: '10:20',
+                title: 'Electricity Bill',
+                details: 'NEA Payment',
+                amount: 1250.50,
+                type: 'debit',
+                status: 'pending',
+                recipient: 'Nepal Electricity Authority',
+                reference: 'BL202505051020'
+            }
+        ]
+    };
+
+    // Initialize the page
+    init();
+
+    function init() {
+        updateBalanceDisplay();
+        renderTransactions(currentUser.transactions);
+        setupEventListeners();
+    }
+
+    function updateBalanceDisplay() {
+        balanceElement.textContent = currentUser.balance.toLocaleString('en-US', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+    }
+
+    function renderTransactions(transactions) {
+        transactionList.innerHTML = '';
+
+        if (transactions.length === 0) {
+            transactionList.innerHTML = '<div class="no-transactions">No transactions found</div>';
+            return;
+        }
+
+        transactions.forEach(transaction => {
+            const transactionItem = document.createElement('div');
+            transactionItem.className = 'transaction-item';
+            transactionItem.dataset.id = transaction.id;
+            transactionItem.dataset.type = transaction.type;
+            transactionItem.dataset.status = transaction.status;
+            transactionItem.dataset.date = transaction.date;
+
+            const amountClass = transaction.type === 'credit' ? 'credit' : 'debit';
+            const amountSign = transaction.type === 'credit' ? '+' : '-';
+
+            transactionItem.innerHTML = `
+                <div class="transaction-date">
+                    <div class="day-month">${formatDate(transaction.date)}</div>
+                    <div class="time">${transaction.time}</div>
+                </div>
+                <div class="transaction-description">
+                    <div class="transaction-title">${transaction.title}</div>
+                    <div class="transaction-details">${transaction.details}</div>
+                </div>
+                <div class="transaction-amount ${amountClass}">${amountSign} NRP ${transaction.amount.toLocaleString('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                })}</div>
+                <div class="transaction-status ${transaction.status}">${capitalizeFirstLetter(transaction.status)}</div>
+            `;
+
+            // Add click event to show transaction details
+            transactionItem.addEventListener('click', () => showTransactionDetails(transaction));
+            transactionList.appendChild(transactionItem);
+        });
+    }
+
+    function showTransactionDetails(transaction) {
+        // Create modal for transaction details
+        const modal = document.createElement('div');
+        modal.className = 'transaction-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3>Transaction Details</h3>
+                <div class="transaction-detail-row">
+                    <span class="detail-label">Transaction ID:</span>
+                    <span class="detail-value">${transaction.reference}</span>
+                </div>
+                <div class="transaction-detail-row">
+                    <span class="detail-label">Date & Time:</span>
+                    <span class="detail-value">${formatDate(transaction.date)} at ${transaction.time}</span>
+                </div>
+                <div class="transaction-detail-row">
+                    <span class="detail-label">Type:</span>
+                    <span class="detail-value">${capitalizeFirstLetter(transaction.type)}</span>
+                </div>
+                <div class="transaction-detail-row">
+                    <span class="detail-label">Amount:</span>
+                    <span class="detail-value ${transaction.type === 'credit' ? 'credit' : 'debit'}">
+                        ${transaction.type === 'credit' ? '+' : '-'} NRP ${transaction.amount.toFixed(2)}
+                    </span>
+                </div>
+                ${transaction.recipient ? `
+                <div class="transaction-detail-row">
+                    <span class="detail-label">Recipient:</span>
+                    <span class="detail-value">${transaction.recipient}</span>
+                </div>
+                ` : ''}
+                <div class="transaction-detail-row">
+                    <span class="detail-label">Description:</span>
+                    <span class="detail-value">${transaction.details}</span>
+                </div>
+                <div class="transaction-detail-row">
+                    <span class="detail-label">Status:</span>
+                    <span class="detail-value status-${transaction.status}">${capitalizeFirstLetter(transaction.status)}</span>
+                </div>
+                ${transaction.status === 'pending' ? `
+                <div class="transaction-actions">
+                    <button class="cancel-transaction" data-id="${transaction.id}">Cancel Transaction</button>
+                </div>
+                ` : ''}
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Close modal
+        modal.querySelector('.close-modal').addEventListener('click', () => {
+            modal.remove();
+        });
+
+        // Cancel transaction button
+        if (transaction.status === 'pending') {
+            modal.querySelector('.cancel-transaction').addEventListener('click', function() {
+                if (confirm('Are you sure you want to cancel this transaction?')) {
+                    cancelTransaction(transaction.id);
+                    modal.remove();
+                }
+            });
+        }
+
+        // Close when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.remove();
+            }
+        });
+    }
+
+    function cancelTransaction(transactionId) {
+        const transactionIndex = currentUser.transactions.findIndex(t => t.id === transactionId);
+        if (transactionIndex !== -1) {
+            currentUser.transactions[transactionIndex].status = 'cancelled';
+            renderTransactions(currentUser.transactions);
+        }
+    }
+
+    function setupEventListeners() {
+        // Balance visibility toggle
+        eyeIcon.addEventListener('click', function() {
+            if (this.classList.contains('fa-eye-slash')) {
+                this.classList.remove('fa-eye-slash');
+                this.classList.add('fa-eye');
+                balanceElement.textContent = 'XXXXX';
+            } else {
+                this.classList.remove('fa-eye');
+                this.classList.add('fa-eye-slash');
+                updateBalanceDisplay();
+            }
+        });
+
+        // Date range filter toggle
+        dateRangeFilter.addEventListener('change', function() {
+            customDateRange.style.display = this.value === 'custom' ? 'flex' : 'none';
+        });
+
+        // Apply filters
+        filterApplyBtn.addEventListener('click', applyFilters);
+
+        // Reset filters
+        filterResetBtn.addEventListener('click', function() {
+            transactionTypeFilter.value = 'all';
+            dateRangeFilter.value = 'all-time';
+            customDateRange.style.display = 'none';
+            dateFromInput.value = '';
+            dateToInput.value = '';
+            transactionSearch.value = '';
+            applyFilters();
+        });
+
+        // Search transactions
+        searchButton.addEventListener('click', applyFilters);
+        transactionSearch.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                applyFilters();
+            }
+        });
+
+        // Export transactions
+        exportBtn.addEventListener('click', exportTransactions);
+
+        // Add new transaction button (you would add this to your HTML)
+        document.getElementById('new-transaction-btn')?.addEventListener('click', showSendMoneyForm);
+    }
+
+    function applyFilters() {
+        let filteredTransactions = [...currentUser.transactions];
+
+        // Filter by type
+        const typeFilter = transactionTypeFilter.value;
+        if (typeFilter !== 'all') {
+            filteredTransactions = filteredTransactions.filter(t => t.type === typeFilter);
+        }
+
+        // Filter by date range
+        const dateFilter = dateRangeFilter.value;
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        switch (dateFilter) {
+            case 'today':
+                filteredTransactions = filteredTransactions.filter(t => {
+                    const transDate = new Date(t.date);
+                    return transDate.toDateString() === today.toDateString();
+                });
+                break;
+            case 'this-week':
+                const weekStart = new Date(today);
+                weekStart.setDate(today.getDate() - today.getDay());
+                filteredTransactions = filteredTransactions.filter(t => {
+                    const transDate = new Date(t.date);
+                    return transDate >= weekStart;
+                });
+                break;
+            case 'this-month':
+                filteredTransactions = filteredTransactions.filter(t => {
+                    const transDate = new Date(t.date);
+                    return transDate.getMonth() === today.getMonth() && 
+                           transDate.getFullYear() === today.getFullYear();
+                });
+                break;
+            case 'last-month':
+                const lastMonth = new Date(today);
+                lastMonth.setMonth(lastMonth.getMonth() - 1);
+                filteredTransactions = filteredTransactions.filter(t => {
+                    const transDate = new Date(t.date);
+                    return transDate.getMonth() === lastMonth.getMonth() && 
+                           transDate.getFullYear() === lastMonth.getFullYear();
+                });
+                break;
+            case 'custom':
+                if (dateFromInput.value && dateToInput.value) {
+                    const fromDate = new Date(dateFromInput.value);
+                    const toDate = new Date(dateToInput.value);
+                    toDate.setHours(23, 59, 59, 999); // End of day
+
+                    filteredTransactions = filteredTransactions.filter(t => {
+                        const transDate = new Date(t.date);
+                        return transDate >= fromDate && transDate <= toDate;
+                    });
+                }
+                break;
+            // 'all-time' - no date filtering needed
+        }
+
+        // Filter by search term
+        const searchTerm = transactionSearch.value.toLowerCase();
+        if (searchTerm) {
+            filteredTransactions = filteredTransactions.filter(t => 
+                t.title.toLowerCase().includes(searchTerm) || 
+                t.details.toLowerCase().includes(searchTerm) ||
+                (t.recipient && t.recipient.toLowerCase().includes(searchTerm)) ||
+                t.reference.toLowerCase().includes(searchTerm)
+            );
+        }
+
+        renderTransactions(filteredTransactions);
+    }
+
+    function exportTransactions() {
+        // In a real app, this would generate a CSV or PDF
+        alert('Export functionality would generate a transaction report file in a real application.');
+    }
+
+    function showSendMoneyForm() {
+        const modal = document.createElement('div');
+        modal.className = 'transaction-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3>Send Money</h3>
+                <form id="send-money-form">
+                    <div class="form-group">
+                        <label for="recipient">Recipient</label>
+                        <input type="text" id="recipient" required placeholder="Name or Wallet ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount (NRP)</label>
+                        <input type="number" id="amount" min="1" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" required placeholder="Purpose of payment">
+                    </div>
+                    <button type="submit" class="submit-btn">Send Money</button>
+                </form>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Close modal
+        modal.querySelector('.close-modal').addEventListener('click', () => {
+            modal.remove();
+        });
+
+        // Form submission
+        document.getElementById('send-money-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const recipient = document.getElementById('recipient').value;
+            const amount = parseFloat(document.getElementById('amount').value);
+            const description = document.getElementById('description').value;
+
+            if (amount > currentUser.balance) {
+                alert('Insufficient balance for this transaction.');
+                return;
+            }
+
+            // Create new transaction
+            const newTransaction = {
+                id: currentUser.transactions.length + 1,
+                date: new Date().toISOString().split('T')[0],
+                time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                title: 'Money Transfer',
+                details: description,
+                amount: amount,
+                type: 'debit',
+                status: 'pending',
+                recipient: recipient,
+                reference: 'TRF' + new Date().getTime().toString().slice(-10)
+            };
+
+            // Add to transactions
+            currentUser.transactions.unshift(newTransaction);
+            currentUser.balance -= amount;
+
+            // Update UI
+            updateBalanceDisplay();
+            renderTransactions(currentUser.transactions);
+            modal.remove();
+
+            // Show success message
+            alert(`Successfully sent NRP ${amount.toFixed(2)} to ${recipient}. Transaction ID: ${newTransaction.reference}`);
+        });
+
+        // Close when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.remove();
+            }
+        });
+    }
+
+    // Helper functions
+    function formatDate(dateString) {
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+        return new Date(dateString).toLocaleDateString('en-US', options);
+    }
+
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+});
+    </script>
 </body>
 
 </html>
